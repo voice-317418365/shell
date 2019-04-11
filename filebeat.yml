@@ -1,3 +1,4 @@
+#匹配多种格式的日志
 filebeat.prospectors:
 - input_type: log
   paths:
