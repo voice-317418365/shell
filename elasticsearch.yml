@@ -86,3 +86,7 @@ http.port: 9200
 # Require explicit names when deleting indices:
 #
 #action.destructive_requires_name: true
+
+
+
+#阿里云使用VPS网络后host地址改为0.0.0.0
