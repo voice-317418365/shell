@@ -20,13 +20,13 @@ function del_logstash_data()
 
 
 
-#cut logstash log
+#切割logstash日志
 cut_logstash
 
-#del logstash_data
+#删除es数据
 del_logstash_data
 
-
+#删除其他日志
 for file in ${logs_name[*]}
 do
         find $log_path -maxdepth 1 -type f -name "${file}*" -mtime +$existday  -exec rm -f {} \;
