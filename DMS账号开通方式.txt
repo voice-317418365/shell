@@ -1,0 +1,17 @@
+子账号登陆页面https://signin.aliyun.com/login.htm
+DMS登陆页面dms-rds.aliyun.com
+
+开通方法：
+dmsIP段100.104.175.0/24
+
+1.ram访问控制-新建用户
+
+2.给用户授权AliyunHDMReadOnlyAccess
+
+3.登陆数据库创建只读账号dms_readonly
+
+4.添加数据库白名单100.104.175.0/24，ECS安全组也要添加
+
+5.登陆DMS控制台-云账号授权管理-数据库账号组管理-添加只读账号dms_readonly（数据库的账号）
+
+6.云账号管理里给用户授权，数据库权限取消数据导入功能
