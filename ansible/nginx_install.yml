@@ -1,0 +1,8 @@
+---
+- name: install nginx
+  hosts: nginx
+  remote_user: root
+  tasks:
+      - name: yum install nginx
+        yum: name=nginx state=remove
+

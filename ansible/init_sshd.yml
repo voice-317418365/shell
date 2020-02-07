@@ -1,0 +1,20 @@
+---
+- name: Permit Root Login
+  hosts: all
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: '^PermitRootLogin no'
+      line: 'PermitRootLogin yes'
+  tags: ssh
+
+
+- name: PasswordAuthentication
+  hosts: all
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: '^PasswordAuthentication no'
+      line: 'PasswordAuthentication yes'
+
+
+- name: systemctl restart service
+  service: name=sshd state=restarted enabled=yes

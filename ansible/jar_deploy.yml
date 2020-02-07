@@ -1,0 +1,25 @@
+---
+- name: Install rsync
+  yum: name=rsync state=present
+
+- name: create FE_shell directory
+  file: dest=/mydata/FE_shell state=directory  owner=root group=root
+
+- name: rsync start file
+  template: src={{item}}  dest=/mydata/FE_shell   owner=root group=root  mode=0755
+  with_items:
+    - job_start.sh
+    - job_stop.sh
+
+- name: stop  jar
+  shell: /mydata/FE_shell/job_stop.sh
+
+- name: create java job directory
+  file: dest=/mydata/javaProject/{{pname}}/job/ state=directory  owner=root group=root
+
+- name: push platform-job.jar
+  synchronize: src=/mydata/project/source_online/{{env}}/java/job/platform-job.jar dest=/mydata/javaProject/{{pname}}/job/{{pname}}-job.jar  mode=push
+
+- name: start jar
+  shell: /mydata/FE_shell/job_start.sh
+  tags: start

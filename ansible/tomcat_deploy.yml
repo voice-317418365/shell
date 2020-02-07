@@ -1,0 +1,16 @@
+---
+- name: Install rsync
+  yum: name=rsync state=present
+
+- name: stop  jar
+  shell: /mydata/FE_shell/job_stop.sh
+
+- name: bak war
+  shell: /mydata/tomcats/cntrsys/bak_project.sh job
+
+- name: push platform-job.jar
+  synchronize: src=/mydata/project/source_online/pro/3.0/java/contract/job/contractsystem-job.jar dest=/mydata/tomcats/cntrsys/contractsystem-job.jar  mode=push
+
+- name: start jar
+  shell: /mydata/FE_shell/job_start.sh
+  tags: start

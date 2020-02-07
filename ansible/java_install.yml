@@ -1,0 +1,15 @@
+---
+- name: install java
+  hosts: test
+  remote_user: root
+  vars:
+  - jdk: jdk1.8.0_121
+  tasks:
+      - name: check dir exist
+        file: path=/mydata state=directory
+      - name: copy jdk to client
+        copy: src=./{{ jdk }}.tar.gz dest=/mydata/
+      - name: install jdk
+        shell: cd /mydata; tar -xzf {{ jdk }}.tar.gz;
+      - name: change profile
+        shell: echo -e "JAVA_HOME=/mydata/{{ jdk }}\nCLASSPATH=\$JAVA_HOME/lib/\nPATH=\$PATH:\$JAVA_HOME/bin\nexport PATH JAVA_HOME CLASSPATH">>/etc/profile; source /etc/profile;

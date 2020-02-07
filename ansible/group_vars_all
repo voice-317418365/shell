@@ -1,0 +1,15 @@
+---
+tomcat1: /usr/local/apache-tomcat-8.0.27
+tomcat2: /usr/local/jobservice/apache-tomcat-8.0.27
+tomcat3: /usr/local/jobservice2/apache-tomcat-8.0.27
+tomcat4: /usr/local/jobservice3/apache-tomcat-8.0.27
+tomcat5: /usr/local/jobservice4/apache-tomcat-8.0.27
+tomcat6: /usr/local/jobservice5/apache-tomcat-8.0.27
+pname1: niuweb
+pname2: niumanager
+pname3: simulationtrading
+pname4: externalService 
+pname5: tradingjob
+pname6: niujob
+pname7: middleriskjob
+pname8: middleriskcustomerjob
